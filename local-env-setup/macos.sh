@@ -12,6 +12,9 @@ brew install --cask font-fira-code-nerd-font
 brew install --cask github
 brew install --cask iterm2
 brew install --cask firefox
+brew install --cask rectangle
+brew install --cask alt-tab
+brew install --cask legcord
 
 # Install Starship
 brew install starship
