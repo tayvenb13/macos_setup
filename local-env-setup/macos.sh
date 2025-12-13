@@ -20,7 +20,7 @@ brew install --cask firefox
 brew install --cask rectangle
 brew install --cask alt-tab
 brew install --cask legcord
-
+brew install --cask podman-desktop
 # Install Starship
 brew install starship
 # Add eval "$(starship init zsh)" to ~/.zshrc
