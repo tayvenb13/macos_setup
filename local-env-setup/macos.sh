@@ -1,5 +1,10 @@
 #!/bin/bash
 
+#prompt for email
+read -p "Enter your email: " EMAIL
+#prompt for name
+read -p "Enter your name: " NAME
+
 # Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 #reload shell
@@ -19,9 +24,18 @@ brew install --cask legcord
 # Install Starship
 brew install starship
 # Add eval "$(starship init zsh)" to ~/.zshrc
-echo 'eval "$(starship init zsh)"' >> ~/.zshrc
-#reload shell
-source ~/.zshrc
+# check if ~/.zshrc exists and has eval "$(starship init zsh)" already
+if [ -f ~/.zshrc ]; then
+    if grep -q "eval \"\$(starship init zsh)\"" ~/.zshrc; then
+        echo "Starship already added to ~/.zshrc"
+    else
+        echo "Adding Starship to ~/.zshrc"
+        echo 'eval "$(starship init zsh)"' >> ~/.zshrc
+    fi
+else
+    echo "~/.zshrc does not exist"
+fi
+
 
 # Set iTerm2 profile Font
 PROFILE_NAME="Default" # Replace with your iTerm2 profile name
@@ -45,6 +59,9 @@ EOF
 starship preset gruvbox-rainbow -o ~/.config/starship.toml
 
 #configure git
-git config --global user.name "Tayven Bigelow"
-git config --global user.email "gwathruoko@gmail.com"
+git config --global user.name $NAME
+git config --global user.email $EMAIL
 git config --global push.autoSetupRemote true
+
+#reload shell
+source ~/.zshrc
