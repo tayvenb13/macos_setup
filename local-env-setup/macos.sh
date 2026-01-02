@@ -36,8 +36,32 @@ else
     echo "~/.zshrc does not exist"
 fi
 
+# Add zsh-autosuggestions to zshrc
+if [ -f ~/.zshrc ]; then
+    if grep -q "source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ~/.zshrc; then
+        echo "zsh-autosuggestions already added to ~/.zshrc"
+    else
+        echo "Adding zsh-autosuggestions to ~/.zshrc"
+        echo 'source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh' >> ~/.zshrc
+    fi
+else
+    echo "~/.zshrc does not exist"
+fi
 
-# Set iTerm2 profile Font
+# Add zsh-syntax-highlighting to zshrc
+if [ -f ~/.zshrc ]; then
+    if grep -q "source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ~/.zshrc; then
+        echo "zsh-syntax-highlighting already added to ~/.zshrc"
+    else
+        echo "Adding zsh-syntax-highlighting to ~/.zshrc"
+        echo 'source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh' >> ~/.zshrc
+    fi
+else
+    echo "~/.zshrc does not exist"
+fi
+
+
+  # Set iTerm2 profile Font
 PROFILE_NAME="Default" # Replace with your iTerm2 profile name
 FONT_NAME="Fira Code Nerd Font" # Replace with your desired font name
 FONT_SIZE="14" # Replace with your desired font size

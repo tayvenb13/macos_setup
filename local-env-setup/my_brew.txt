@@ -3,3 +3,6 @@ zsh
 gemini-cli
 podman
 go
+zsh-autosuggestions
+zsh-syntax-highlighting
+btop
